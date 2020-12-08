@@ -11,3 +11,6 @@ add_executable(morph-server src/main-server.cpp src/encryption.cpp src/network.c
 
 target_link_libraries(morph-cli helib)
 target_link_libraries(morph-server helib)
+
+install(TARGETS morph-cli DESTINATION bin)
+install(TARGETS morph-server DESTINATION bin)
