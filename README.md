@@ -1,8 +1,8 @@
 # Morph
 
-:fire: A privacy-preserving, in-memory, key-value store
+:fire: An encrypted, in-memory, key-value store
 
-Uses homomorphic encryption, so the server can’t see keys or values. Powered by [HElib](https://github.com/homenc/HElib) and follows the [Redis protocol](https://redis.io/topics/protocol).
+Uses homomorphic encryption, so the server can’t read data or queries. Powered by [HElib](https://github.com/homenc/HElib) and follows the [Redis protocol](https://redis.io/topics/protocol).
 
 *Designed for research and education, and should not be considered secure.*
 
