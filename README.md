@@ -16,7 +16,7 @@ On Mac, run:
 brew install ankane/brew/morph
 ```
 
-On Linux and Windows, [build from source](#building-from-source).
+On other platforms, [build from source](#building-from-source).
 
 ## Getting Started
 
