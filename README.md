@@ -124,6 +124,7 @@ cd HElib && mkdir build && cd build
 cmake -DBUILD_SHARED=ON ..
 make
 sudo make install
+sudo ldconfig
 ```
 
 On Mac, use:
