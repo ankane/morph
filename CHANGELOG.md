@@ -1,4 +1,4 @@
-## 0.1.1 (unreleased)
+## 0.1.1 (2020-12-08)
 
 - Added library and header files to install
 - Added support for HElib 1.3.0 (now requires C++17)
