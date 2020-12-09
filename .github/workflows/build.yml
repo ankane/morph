@@ -17,7 +17,7 @@ jobs:
         git clone --branch v1.2.0 https://github.com/homenc/HElib.git
         cd HElib
         mkdir build && cd build
-        cmake -DBUILD_SHARED=ON ..
+        cmake ..
         make
         sudo make install
         sudo ldconfig
@@ -29,9 +29,12 @@ jobs:
         cmake ..
         make
         sudo make install
+        sudo ldconfig
     - name: Test
       run: |
         morph-cli keygen
         morph-server &
         sleep 1
         ./run_tests.sh
+        g++ -std=c++14 -lmorph -lhelib -lntl -o hello examples/hello.cpp
+        ./hello

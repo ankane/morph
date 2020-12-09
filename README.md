@@ -93,22 +93,35 @@ morph-cli info
 
 ## Clients
 
-C++
+- [C++](#c++)
+- Ruby (coming soon)
+
+### C++
+
+Create `hello.cpp`:
 
 ```cpp
-auto morph = morph::Client();
-morph.keygen();
-morph.set("hello", "world");
-morph.get("hello");
+#include <morph/client.h>
+
+int main() {
+  auto morph = morph::Client();
+  morph.flushall();
+  morph.set("hello", "world");
+  auto value = morph.get("hello");
+  std::cout << value << std::endl;
+}
 ```
 
-Ruby (coming soon)
+Compile:
 
-```ruby
-morph = Morph::Client.new
-morph.keygen
-morph.set("hello", "world")
-morph.get("hello")
+```sh
+g++ -std=c++14 -lmorph -lhelib -lntl -o hello hello.cpp
+```
+
+And run:
+
+```sh
+./hello
 ```
 
 ## Building from Source
@@ -121,7 +134,7 @@ On Ubuntu 20.04, use:
 sudo apt-get install libntl-dev
 git clone --branch v1.2.0 https://github.com/homenc/HElib.git
 cd HElib && mkdir build && cd build
-cmake -DBUILD_SHARED=ON ..
+cmake ..
 make
 sudo make install
 sudo ldconfig
