@@ -93,22 +93,35 @@ morph-cli info
 
 ## Clients
 
-C++
+- [C++](#c++)
+- Ruby (coming soon)
+
+### C++
+
+Create `hello.cpp`:
 
 ```cpp
-auto morph = morph::Client();
-morph.keygen();
-morph.set("hello", "world");
-morph.get("hello");
+#include <morph/client.h>
+
+int main() {
+  auto morph = morph::Client();
+  morph.flushall();
+  morph.set("hello", "world");
+  auto value = morph.get("hello");
+  std::cout << value << std::endl;
+}
 ```
 
-Ruby (coming soon)
+Compile:
 
-```ruby
-morph = Morph::Client.new
-morph.keygen
-morph.set("hello", "world")
-morph.get("hello")
+```sh
+g++ -std=c++14 hello.cpp -lmorph -lpthread -lhelib -lntl -o hello
+```
+
+And run:
+
+```sh
+./hello
 ```
 
 ## Building from Source

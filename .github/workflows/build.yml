@@ -35,3 +35,5 @@ jobs:
         morph-server &
         sleep 1
         ./run_tests.sh
+        g++ -std=c++14 examples/hello.cpp -lmorph -lpthread -lhelib -lntl -o hello
+        ./hello
