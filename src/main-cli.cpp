@@ -122,6 +122,7 @@ int main(int argc, char *argv[]) {
     }
     auto morph = morph::Client();
     morph.keygen();
+    std::cerr << "Generated morph.sk (secret key) and morph.pk (public key)" << std::endl;
   } else {
     auto options = morph::ClientOptions();
     options.hostname = opts.hostname;
