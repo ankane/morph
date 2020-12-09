@@ -113,13 +113,26 @@ morph.get("hello")
 
 ## Building from Source
 
-Install HElib. With Homebrew, use:
+First, install NTL and HElib.
+
+On Ubuntu 20.04, use:
+
+```sh
+sudo apt-get install libntl-dev
+git clone --branch v1.2.0 https://github.com/homenc/HElib.git
+cd HElib && mkdir build && cd build
+cmake -DBUILD_SHARED=ON ..
+make
+sudo make install
+```
+
+On Mac, use:
 
 ```sh
 brew install helib
 ```
 
-And run:
+Then run:
 
 ```sh
 git clone https://github.com/ankane/morph.git
