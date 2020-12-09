@@ -25,12 +25,20 @@ std::string ctxtToString(const helib::Ctxt& ctxt);
 
 void readKeyBinary(std::istream& filename, helib::PubKey& pk);
 void readKeyBinary(std::istream& filename, helib::SecKey& sk);
+bool fileExists(const std::string& filename);
 
 template <typename T1, typename T2>
 using uniq_pair = std::pair<std::unique_ptr<T1>, std::unique_ptr<T2>>;
 
 template <typename KEY>
-uniq_pair<helib::Context, KEY> loadContextAndKey(const std::string& filename) {
+uniq_pair<helib::Context, KEY> loadContextAndKey(const std::string& filename, bool secret) {
+  if (!fileExists(filename)) {
+    std::cerr << "No such file: " << filename << std::endl;
+    std::cerr << "Use the " << (secret ? "-S" : "-P") << " option to specify a different path" << std::endl;
+    std::cerr << "Or generate a key pair with `morph-cli keygen`" << std::endl;
+    exit(1);
+  }
+
   std::ifstream file(filename, std::ios::binary);
   if (!file.is_open()) {
     std::cerr << "Error opening file: " << filename << std::endl;
@@ -55,7 +63,7 @@ void generateKeys();
 class Encryptor {
   public:
     Encryptor(const std::string& sk_path) {
-      std::tie(contextp_, skp_) = loadContextAndKey<helib::SecKey>(sk_path);
+      std::tie(contextp_, skp_) = loadContextAndKey<helib::SecKey>(sk_path, true);
     }
     std::string encrypt(const std::string& value);
     std::string decrypt(const std::string& value);

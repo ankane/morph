@@ -1,6 +1,7 @@
 ## 0.1.2 (unreleased)
 
 - Improved output of `keygen`
+- Improved error message for missing keys
 
 ## 0.1.1 (2020-12-08)
 

@@ -26,7 +26,7 @@ namespace morph {
 class Store {
   public:
     Store(const std::string& pk_path) {
-      std::tie(contextp_, pkp_) = loadContextAndKey<helib::PubKey>(pk_path);
+      std::tie(contextp_, pkp_) = loadContextAndKey<helib::PubKey>(pk_path, false);
     }
     void set(const std::string& key, const std::string& value);
     std::string get(const std::string& key);
