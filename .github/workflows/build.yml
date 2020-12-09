@@ -38,6 +38,6 @@ jobs:
         sleep 1
         ./run_tests.sh
         echo "here"
-        g++ -std=c++14 -lmorph -lhelib -lntl -o hello examples/hello.cpp
+        g++ -std=c++14 examples/hello.cpp -lmorph -lhelib -lntl -o hello
         echo "here 2"
         ./hello

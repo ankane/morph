@@ -16,11 +16,11 @@ target_link_libraries(morph helib)
 target_link_libraries(morph-cli helib)
 target_link_libraries(morph-server helib)
 
-install(TARGETS morph LIBRARY DESTINATION lib ARCHIVE DESTINATION lib PUBLIC_HEADER DESTINATION include)
 install(DIRECTORY "${CMAKE_SOURCE_DIR}/src/"
   DESTINATION "include/morph"
   FILES_MATCHING
   PATTERN "*.h"
 )
+install(TARGETS morph LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
 install(TARGETS morph-cli RUNTIME DESTINATION bin)
 install(TARGETS morph-server RUNTIME DESTINATION bin)
