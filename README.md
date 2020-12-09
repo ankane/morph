@@ -93,7 +93,7 @@ morph-cli info
 
 ## Clients
 
-- [C++](#c++)
+- [C++](#c)
 - Ruby (coming soon)
 
 ### C++
