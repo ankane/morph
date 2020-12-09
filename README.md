@@ -113,7 +113,7 @@ morph.get("hello")
 
 ## Building from Source
 
-First, install NTL and HElib.
+First, install HElib.
 
 On Ubuntu 20.04, use:
 
