@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 find_package(helib REQUIRED)
 
-# don't specify type so users can set BUILD_SHARED_LIBS=ON
+# uses default type so users can set BUILD_SHARED_LIBS=ON as needed
 add_library(morph src/client.cpp src/encryption.cpp src/network.cpp src/resp.cpp)
 
 add_executable(morph-cli src/main-cli.cpp src/client.cpp src/encryption.cpp src/network.cpp src/resp.cpp)

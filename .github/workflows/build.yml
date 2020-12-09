@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, macos-latest]
+        os: [ubuntu-20.04]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
@@ -35,5 +35,5 @@ jobs:
         morph-server &
         sleep 1
         ./run_tests.sh
-        g++ -std=c++14 examples/hello.cpp -lmorph -lhelib -lntl -o hello
+        g++ -std=c++14 examples/hello.cpp -lmorph -lpthread -lhelib -lntl -o hello
         ./hello

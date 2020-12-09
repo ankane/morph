@@ -115,7 +115,7 @@ int main() {
 Compile:
 
 ```sh
-g++ -std=c++14 -lmorph -lhelib -lntl -o hello hello.cpp
+g++ -std=c++14 hello.cpp -lmorph -lhelib -lntl -o hello
 ```
 
 And run:
