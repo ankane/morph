@@ -115,7 +115,7 @@ int main() {
 Compile:
 
 ```sh
-g++ -std=c++14 hello.cpp -lmorph -lpthread -lhelib -lntl -o hello
+g++ -std=c++17 hello.cpp -lmorph -lpthread -lhelib -lntl -o hello
 ```
 
 And run:
@@ -132,7 +132,7 @@ On Ubuntu 20.04, use:
 
 ```sh
 sudo apt-get install libntl-dev
-git clone --branch v1.2.0 https://github.com/homenc/HElib.git
+git clone --branch v1.3.0 https://github.com/homenc/HElib.git
 cd HElib && mkdir build && cd build
 cmake ..
 make

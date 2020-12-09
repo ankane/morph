@@ -14,7 +14,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install libntl-dev
-        git clone --branch v1.2.0 https://github.com/homenc/HElib.git
+        git clone --branch v1.3.0 https://github.com/homenc/HElib.git
         cd HElib
         mkdir build && cd build
         cmake ..
@@ -35,5 +35,5 @@ jobs:
         morph-server &
         sleep 1
         ./run_tests.sh
-        g++ -std=c++14 examples/hello.cpp -lmorph -lpthread -lhelib -lntl -o hello
+        g++ -std=c++17 examples/hello.cpp -lmorph -lpthread -lhelib -lntl -o hello
         ./hello

@@ -1,6 +1,7 @@
 ## 0.1.1 (unreleased)
 
 - Added library and header files to install
+- Added support for HElib 1.3.0 (now requires C++17)
 - Improved output when a key is set multiple times
 
 ## 0.1.0 (2020-12-08)
