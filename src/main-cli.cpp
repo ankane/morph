@@ -83,8 +83,15 @@ void showUsage() {
     << "  morph-cli get hello" << std::endl;
 }
 
+// TODO use OptionalString object
 std::string inspectString(const std::string& value) {
-  return value.empty() ? "(nil)" : '"' + value + '"';
+  if (value.empty()) {
+    return "(nil)";
+  } else if (value == "(set multiple times)") {
+    return value;
+  } else {
+    return '"' + value + '"';
+  }
 }
 
 void printArray(std::vector<std::string> arr) {

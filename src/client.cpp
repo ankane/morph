@@ -28,6 +28,18 @@ void Client::keygen() {
   generateKeys();
 }
 
+// TODO use OptionalString object
+std::string decrypt(morph::Encryptor& encryptor, const std::string& str) {
+  auto decrypted = encryptor.decrypt(str);
+  if (decrypted.empty()) {
+    return decrypted;
+  }
+  if (decrypted[0] != '+') {
+    return "(set multiple times)";
+  }
+  return decrypted.substr(1);
+}
+
 Result Client::execute(std::vector<std::string>& args) {
   // encrypt
   auto encryptor = morph::Encryptor(options_.sk_path);
@@ -37,7 +49,7 @@ Result Client::execute(std::vector<std::string>& args) {
     if (i == 0 || (args[0] == "keys" && args[i] == "*")) {
       arr.push_back(args[i]);
     } else {
-      arr.push_back(encryptor.encrypt(args[i]));
+      arr.push_back(encryptor.encrypt("+" + args[i]));
     }
   }
 
@@ -58,10 +70,10 @@ Result Client::execute(std::vector<std::string>& args) {
 
   // decrypt
   if (res.type == RESP_BULK_STRING && args[0] != "info") {
-    res.value_str = encryptor.decrypt(res.value_str);
+    res.value_str = decrypt(encryptor, res.value_str);
   } else if (res.type == RESP_ARRAY) {
     for (int i = 0; i < res.value_arr.size(); i++) {
-      res.value_arr[i] = encryptor.decrypt(res.value_arr[i]);
+      res.value_arr[i] = decrypt(encryptor, res.value_arr[i]);
     }
   }
 

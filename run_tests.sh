@@ -31,3 +31,7 @@ morph-cli info
 
 echo "localhost"
 morph-cli -h localhost info
+
+echo "set multiple times"
+morph-cli set hello world
+morph-cli get hello
