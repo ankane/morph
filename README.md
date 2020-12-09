@@ -26,7 +26,7 @@ Generate a key pair
 morph-cli keygen
 ```
 
-Start the server
+Start the server (in another window)
 
 ```sh
 morph-server
