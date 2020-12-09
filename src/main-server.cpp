@@ -23,7 +23,7 @@ struct Options {
   std::string bind = "127.0.0.1";
   int port = 6774;
   std::vector<std::string> args;
-  bool help;
+  bool help = false;
   bool version;
   std::string pk_path = "morph.pk";
   std::string err;

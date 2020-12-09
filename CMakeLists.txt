@@ -4,7 +4,7 @@ project(morph)
 
 set(CMAKE_CXX_STANDARD 14)
 
-find_package(helib)
+find_package(helib REQUIRED)
 
 add_executable(morph-cli src/main-cli.cpp src/client.cpp src/encryption.cpp src/network.cpp src/resp.cpp)
 add_executable(morph-server src/main-server.cpp src/encryption.cpp src/network.cpp src/resp.cpp src/server.cpp src/store.cpp)
@@ -12,5 +12,5 @@ add_executable(morph-server src/main-server.cpp src/encryption.cpp src/network.c
 target_link_libraries(morph-cli helib)
 target_link_libraries(morph-server helib)
 
-install(TARGETS morph-cli DESTINATION bin)
-install(TARGETS morph-server DESTINATION bin)
+install(TARGETS morph-cli RUNTIME DESTINATION bin)
+install(TARGETS morph-server RUNTIME DESTINATION bin)
