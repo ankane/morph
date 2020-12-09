@@ -49,6 +49,7 @@ Result Client::execute(std::vector<std::string>& args) {
     if (i == 0 || (args[0] == "keys" && args[i] == "*")) {
       arr.push_back(args[i]);
     } else {
+      // TODO use hash of data instead?
       arr.push_back(encryptor.encrypt("+" + args[i]));
     }
   }
