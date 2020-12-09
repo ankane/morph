@@ -109,7 +109,7 @@ int main(int argc, char *argv[]) {
   } else if (opts.version) {
     std::cout << "morph-cli " << MORPH_VERSION << std::endl;
   } else if (opts.args[0] == "keygen") {
-    if (!opts.args.empty()) {
+    if (opts.args.size() > 1) {
       std::cerr << "Too many arguments" << std::endl;
       return 1;
     }
