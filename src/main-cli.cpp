@@ -24,7 +24,7 @@ struct Options {
   int port = 6774;
   std::vector<std::string> args;
   bool help = false;
-  bool version;
+  bool version = false;
   std::string sk_path = "morph.sk";
   std::string err;
 };
