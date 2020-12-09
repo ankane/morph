@@ -37,5 +37,7 @@ jobs:
         morph-server &
         sleep 1
         ./run_tests.sh
+        echo "here"
         g++ -std=c++14 -lmorph -lhelib -lntl -o hello examples/hello.cpp
+        echo "here 2"
         ./hello
