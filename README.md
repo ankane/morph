@@ -121,7 +121,7 @@ On Ubuntu 20.04, use:
 sudo apt-get install libntl-dev
 git clone --branch v1.2.0 https://github.com/homenc/HElib.git
 cd HElib && mkdir build && cd build
-cmake -DBUILD_SHARED=ON ..
+cmake ..
 make
 sudo make install
 sudo ldconfig
