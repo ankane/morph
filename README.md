@@ -88,7 +88,6 @@ morph-cli info
 - get - O(N) where N is the number of keys in the store
 - mset - O(N) where N is the number of keys to set
 - mget - O(N*M) where N is the number of keys to get and M is the number of keys in the store
-- dbsize - O(1)
 - keys - O(N) where N is the number of keys in the store
 
 ## Clients
