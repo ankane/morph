@@ -33,7 +33,9 @@ helib::Ctxt Store::stringToCtxt(const std::string& str) {
 }
 
 void Store::set(const std::string& key, const std::string& value) {
-  store_.emplace_back(std::move(stringToCtxt(key)), std::move(stringToCtxt(value)));
+  auto encrypted_key = stringToCtxt(key);
+  auto encrypted_value = stringToCtxt(value);
+  store_.emplace_back(std::move(encrypted_key), std::move(encrypted_value));
 }
 
 std::string Store::get(const std::string& key) {

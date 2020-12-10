@@ -62,7 +62,6 @@ void generateKeys() {
   unsigned long r = 1;
   unsigned long bits = 1000;
   unsigned long c = 2;
-  unsigned long nthreads = 1;
 
   helib::Context context(m, p, r);
   helib::buildModChain(context, bits, c);
