@@ -37,7 +37,9 @@ std::string decrypt(morph::Encryptor& encryptor, const std::string& str) {
   if (decrypted[0] != '+') {
     return "(set multiple times)";
   }
-  return decrypted.substr(1);
+  // remove trailing NUL bytes
+  // TODO set length in value
+  return std::string(decrypted.substr(1).c_str());
 }
 
 Result Client::execute(std::vector<std::string>& args) {
