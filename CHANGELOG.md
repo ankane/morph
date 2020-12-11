@@ -4,7 +4,7 @@
 - Improved error message for missing keys
 - Fixed trailing NUL bytes
 
-## 0.1.1 (2020-12-08)
+## 0.1.1 (2020-12-09)
 
 - Added library and header files to install
 - Added support for HElib 1.3.0 (now requires C++17)
