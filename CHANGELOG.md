@@ -2,6 +2,7 @@
 
 - Improved output of `keygen`
 - Improved error message for missing keys
+- Fixed trailing NUL bytes
 
 ## 0.1.1 (2020-12-08)
 
