@@ -93,7 +93,7 @@ morph-cli info
 ## Clients
 
 - [C++](#c)
-- [Ruby](https://github.com/ankane/morph)
+- [Ruby](https://github.com/ankane/morph-ruby)
 
 ### C++
 
