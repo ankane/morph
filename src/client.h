@@ -51,7 +51,7 @@ class Client {
 
     void flushall();
     int dbsize();
-    std::vector<std::string> keys(const std::string& pattern);
+    std::vector<std::string> keys(const std::string& pattern = "*");
     std::string info();
 
   private:

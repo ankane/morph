@@ -46,7 +46,6 @@ Result Client::execute(std::vector<std::string>& args) {
   // encrypt
   auto encryptor = morph::Encryptor(options_.sk_path);
   std::vector<std::string> arr;
-  arr.reserve(args.size());
   for (int i = 0; i < args.size(); i++) {
     if (i == 0 || (args[0] == "keys" && args[i] == "*")) {
       arr.push_back(args[i]);
@@ -54,6 +53,9 @@ Result Client::execute(std::vector<std::string>& args) {
       // TODO use hash of data instead?
       arr.push_back(encryptor.encrypt("+" + args[i]));
     }
+  }
+  if (args[0] == "keys" && args.size() == 1) {
+    arr.push_back("*");
   }
 
   // serialize

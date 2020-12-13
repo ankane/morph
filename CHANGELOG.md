@@ -1,3 +1,7 @@
+## 0.1.3 (unreleased)
+
+- Made pattern optional for `keys`
+
 ## 0.1.2 (2020-12-11)
 
 - Improved output of `keygen`
