@@ -4,6 +4,8 @@
 
 Uses homomorphic encryption, so the server can’t read data or queries. Powered by [HElib](https://github.com/homenc/HElib) and follows the [Redis protocol](https://redis.io/topics/protocol).
 
+Learn [how it works](https://github.com/homenc/HElib/tree/master/examples/BGV_country_db_lookup#country-lookup-example).
+
 *Designed for research and education, and should not be considered secure.*
 
 [![Build Status](https://github.com/ankane/morph/workflows/build/badge.svg?branch=master)](https://github.com/ankane/morph/actions)
