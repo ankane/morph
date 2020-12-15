@@ -6,7 +6,7 @@ Uses homomorphic encryption, so the server can’t read data or queries. Powered
 
 Learn [how it works](https://github.com/homenc/HElib/tree/master/examples/BGV_country_db_lookup#country-lookup-example).
 
-*Designed for research and education, and should not be considered secure.*
+*Designed for research and education, and should not be considered secure. For a more practical approach to key-value store encryption, check out [Cloak](https://github.com/ankane/cloak).*
 
 [![Build Status](https://github.com/ankane/morph/workflows/build/badge.svg?branch=master)](https://github.com/ankane/morph/actions)
 
