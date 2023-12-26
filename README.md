@@ -129,11 +129,11 @@ And run:
 
 First, install HElib.
 
-On Ubuntu 20.04, use:
+On Ubuntu 22.04, use:
 
 ```sh
 sudo apt-get install libntl-dev
-git clone --branch v1.3.0 https://github.com/homenc/HElib.git
+git clone --branch v2.3.0 https://github.com/homenc/HElib.git
 cd HElib && mkdir build && cd build
 cmake ..
 make

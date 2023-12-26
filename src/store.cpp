@@ -27,9 +27,7 @@ namespace morph {
 
 helib::Ctxt Store::stringToCtxt(const std::string& str) {
   std::istringstream iss(str);
-  helib::Ctxt ctxt(*pkp_.get());
-  ctxt.read(iss);
-  return ctxt;
+  return helib::Ctxt::readFrom(iss, *pkp_.get());
 }
 
 void Store::set(const std::string& key, const std::string& value) {
@@ -44,7 +42,7 @@ std::string Store::get(const std::string& key) {
   }
 
   auto encrypted_key = stringToCtxt(key);
-  const helib::EncryptedArray& ea = *(contextp_->ea);
+  const helib::EncryptedArray& ea = contextp_->getEA();
   long p = contextp_->getP();
 
   std::vector<helib::Ctxt> mask;

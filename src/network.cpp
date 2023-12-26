@@ -37,7 +37,7 @@ int connSend(char const *hostname, int port, const std::string& oss) {
   hints.ai_socktype = SOCK_STREAM;
   hints.ai_protocol = IPPROTO_TCP;
 
-  sprintf(port_str, "%d", port);
+  snprintf(port_str, 15, "%d", port);
 
   err = getaddrinfo(hostname, port_str, &hints, &addrs);
   if (err != 0) {

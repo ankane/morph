@@ -23,8 +23,6 @@ namespace morph {
 
 std::string ctxtToString(const helib::Ctxt& ctxt);
 
-void readKeyBinary(std::istream& filename, helib::PubKey& pk);
-void readKeyBinary(std::istream& filename, helib::SecKey& sk);
 bool fileExists(const std::string& filename);
 
 template <typename T1, typename T2>
@@ -45,15 +43,13 @@ uniq_pair<helib::Context, KEY> loadContextAndKey(const std::string& filename, bo
     exit(1);
   }
 
-  unsigned long m, p, r;
-  std::vector<long> gens, ords;
-
-  helib::readContextBaseBinary(file, m, p, r, gens, ords);
-  std::unique_ptr<helib::Context> contextp = std::make_unique<helib::Context>(m, p, r, gens, ords);
-  helib::readContextBinary(file, *contextp);
-
-  std::unique_ptr<KEY> keyp = std::make_unique<KEY>(*contextp);
-  readKeyBinary(file, *keyp);
+  std::unique_ptr<helib::Context> contextp(helib::Context::readPtrFrom(file));
+  std::unique_ptr<KEY> keyp;
+  if constexpr (std::is_same_v<KEY, helib::SecKey>) {
+    keyp = std::make_unique<helib::SecKey>(helib::SecKey::readFrom(file, *contextp, false));
+  } else {
+    keyp = std::make_unique<helib::PubKey>(helib::PubKey::readFrom(file, *contextp));
+  }
 
   return {std::move(contextp), std::move(keyp)};
 }

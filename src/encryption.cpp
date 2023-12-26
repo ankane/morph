@@ -23,16 +23,8 @@ namespace morph {
 
 std::string ctxtToString(const helib::Ctxt& ctxt) {
   std::ostringstream oss;
-  ctxt.write(oss);
+  ctxt.writeTo(oss);
   return oss.str();
-}
-
-void readKeyBinary(std::istream& filename, helib::PubKey& pk) {
-  helib::readPubKeyBinary(filename, pk);
-}
-
-void readKeyBinary(std::istream& filename, helib::SecKey& sk) {
-  helib::readSecKeyBinary(filename, sk);
 }
 
 bool fileExists(const std::string& filename)
@@ -63,23 +55,21 @@ void generateKeys() {
   unsigned long bits = 1000;
   unsigned long c = 2;
 
-  helib::Context context(m, p, r);
-  helib::buildModChain(context, bits, c);
-  helib::SecKey secret_key = helib::SecKey(context);
+  helib::ContextBuilder<helib::BGV> cb;
+  auto contextp = cb.m(m).p(p).r(r).bits(bits).c(c).buildPtr();
+  helib::SecKey secret_key = helib::SecKey(*contextp);
   secret_key.GenSecKey();
   helib::addSome1DMatrices(secret_key);
   const helib::PubKey& public_key = secret_key;
 
   auto sk_file = createFile("morph.sk");
-  helib::writeContextBaseBinary(sk_file, context);
-  helib::writeContextBinary(sk_file, context);
-  helib::writeSecKeyBinary(sk_file, secret_key);
+  contextp->writeTo(sk_file);
+  secret_key.writeTo(sk_file, false);
   sk_file.close();
 
   auto pk_file = createFile("morph.pk");
-  helib::writeContextBaseBinary(pk_file, context);
-  helib::writeContextBinary(pk_file, context);
-  helib::writePubKeyBinary(pk_file, public_key);
+  contextp->writeTo(pk_file);
+  public_key.writeTo(pk_file);
   pk_file.close();
 }
 
@@ -103,8 +93,7 @@ std::string Encryptor::decrypt(const std::string& str) {
   }
 
   std::istringstream iss(str);
-  helib::Ctxt encrypted_result(*skp_);
-  encrypted_result.read(iss);
+  helib::Ctxt encrypted_result = helib::Ctxt::readFrom(iss, *skp_.get());
 
   helib::Ptxt<helib::BGV> plaintext_result(skp_->getContext());
   skp_->Decrypt(plaintext_result, encrypted_result);

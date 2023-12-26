@@ -5,15 +5,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04] # TODO macos-latest
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - if: ${{ startsWith(matrix.os, 'ubuntu') }}
         run: |
           sudo apt-get update
           sudo apt-get install libntl-dev
-          git clone --branch v1.3.1 https://github.com/homenc/HElib.git
+          git clone --branch v2.3.0 https://github.com/homenc/HElib.git
           cd HElib
           mkdir build && cd build
           cmake ..
