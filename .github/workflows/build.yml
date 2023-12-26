@@ -28,6 +28,8 @@ jobs:
           cmake ..
           make
           sudo make install
+        env:
+          MACOSX_DEPLOYMENT_TARGET: 11
       - name: Test
         run: |
           morph-cli keygen
