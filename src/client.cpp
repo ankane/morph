@@ -91,10 +91,10 @@ bool Client::set(const std::string& key, const std::string& value) {
   return res.value_str == "OK";
 }
 
-std::string Client::get(const std::string& key) {
+std::optional<std::string> Client::get(const std::string& key) {
   std::vector<std::string> args {"get", key};
   auto res = execute(args);
-  return res.value_str;
+  return res.value_str.empty() ? std::nullopt : std::optional<std::string>{res.value_str};
 }
 
 void Client::flushall() {

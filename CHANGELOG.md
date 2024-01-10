@@ -3,6 +3,7 @@
 - Made pattern optional for `keys`
 - Added support for HElib 2
 - Dropped support for HElib 1
+- Changed `Client::get` to return `std::optional<std::string>`
 
 ## 0.1.2 (2020-12-11)
 

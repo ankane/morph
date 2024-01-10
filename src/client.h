@@ -17,6 +17,7 @@
 #pragma once
 
 #include <iostream>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -44,8 +45,7 @@ class Client {
     Result execute(std::vector<std::string>& cmd);
 
     bool set(const std::string& key, const std::string& value);
-    // TODO return optional string
-    std::string get(const std::string& key);
+    std::optional<std::string> get(const std::string& key);
 
     // TODO add mset and mget
 
