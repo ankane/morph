@@ -108,8 +108,8 @@ int main() {
   auto morph = morph::Client();
   morph.flushall();
   morph.set("hello", "world");
-  auto value = morph.get("hello").value_or("(nil)");
-  std::cout << value << std::endl;
+  auto value = morph.get("hello");
+  std::cout << value.value_or("(nil)") << std::endl;
 }
 ```
 
