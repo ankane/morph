@@ -15,7 +15,7 @@ Learn [how it works](https://github.com/homenc/HElib/tree/master/examples/BGV_co
 On Mac, run:
 
 ```sh
-brew install ankane/brew/morph
+brew install ankane/brew/morph --head
 ```
 
 On other platforms, [build from source](#building-from-source).
