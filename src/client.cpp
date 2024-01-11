@@ -28,7 +28,7 @@ void Client::keygen() {
   generateKeys();
 }
 
-// TODO use OptionalString object
+// TODO return std::optional<std::string>
 std::string decrypt(morph::Encryptor& encryptor, const std::string& str) {
   auto decrypted = encryptor.decrypt(str);
   if (decrypted.empty()) {
@@ -66,6 +66,7 @@ Result Client::execute(std::vector<std::string>& args) {
   char buffer[1048576] = {0};
   auto bytesRead = connRead(sock, buffer, 1048576);
   if (bytesRead <= 0) {
+    // TODO throw error
     std::cerr << "No bytes read" << std::endl;
     exit(1);
   }

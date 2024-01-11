@@ -83,7 +83,7 @@ void showUsage() {
     << "  morph-cli get hello" << std::endl;
 }
 
-// TODO use OptionalString object
+// TODO accept std::optional<std::string>
 std::string inspectString(const std::string& value) {
   if (value.empty()) {
     return "(nil)";
