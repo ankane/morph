@@ -8,7 +8,7 @@ Learn [how it works](https://github.com/homenc/HElib/tree/master/examples/BGV_co
 
 *Designed for research and education, and should not be considered secure. For a more practical approach to key-value store encryption, check out [Cloak](https://github.com/ankane/cloak).*
 
-[![Build Status](https://github.com/ankane/morph/workflows/build/badge.svg?branch=master)](https://github.com/ankane/morph/actions)
+[![Build Status](https://github.com/ankane/morph/actions/workflows/build.yml/badge.svg)](https://github.com/ankane/morph/actions)
 
 ## Installation
 
