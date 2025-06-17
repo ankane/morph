@@ -130,7 +130,7 @@ And run:
 
 First, install HElib.
 
-On Ubuntu 22.04, use:
+On Ubuntu, use:
 
 ```sh
 sudo apt-get install libntl-dev
