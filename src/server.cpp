@@ -15,6 +15,7 @@
  */
 
 #include <arpa/inet.h>
+#include <cstring>
 #include <iostream>
 #include <netinet/in.h>
 #include <string>
@@ -115,12 +116,12 @@ void Server::start() {
 
   int sockfd = socket(AF_INET, SOCK_STREAM, 0);
   if (sockfd == -1) {
-    handleError("socket", strerror(errno));
+    handleError("socket", std::strerror(errno));
   }
 
   int v = 1;
   if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &v, sizeof(int)) == -1) {
-    handleError("setsockopt", strerror(errno));
+    handleError("setsockopt", std::strerror(errno));
   }
 
   sockaddr_in sockaddr;
@@ -128,12 +129,12 @@ void Server::start() {
   sockaddr.sin_addr.s_addr = inet_addr(options_.bind.c_str());
   sockaddr.sin_port = htons(options_.port);
   if (bind(sockfd, (struct sockaddr*)&sockaddr, sizeof(sockaddr)) < 0) {
-    handleError("bind", strerror(errno));
+    handleError("bind", std::strerror(errno));
   }
 
   int max_connections = 10;
   if (listen(sockfd, max_connections) < 0) {
-    handleError("listen", strerror(errno));
+    handleError("listen", std::strerror(errno));
   }
 
   std::cerr << "Ready to accept connections" << std::endl;
@@ -144,7 +145,7 @@ void Server::start() {
     auto addrlen = sizeof(sockaddr);
     int connection = accept(sockfd, (struct sockaddr*)&sockaddr, (socklen_t*)&addrlen);
     if (connection < 0) {
-      handleError("accept", strerror(errno));
+      handleError("accept", std::strerror(errno));
     }
 
     auto bytesRead = connRead(connection, buffer, 1048576);

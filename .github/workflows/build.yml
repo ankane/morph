@@ -5,7 +5,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+          - os: macos-latest
+            ldflags: -L/opt/homebrew/lib
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -34,5 +37,5 @@ jobs:
           morph-server &
           sleep 1
           ./run_tests.sh
-          g++ -std=c++17 examples/hello.cpp -lmorph -lpthread -lhelib -lntl -o hello
+          g++ -std=c++17 examples/hello.cpp ${{ matrix.ldflags }} -lmorph -lpthread -lhelib -lntl -o hello
           ./hello

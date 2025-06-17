@@ -16,6 +16,7 @@
 
 #include <arpa/inet.h>
 #include <cstdio>
+#include <cstring>
 #include <iostream>
 #include <netdb.h>
 #include <string>
@@ -40,7 +41,7 @@ int connSend(char const *hostname, int port, const std::string& oss) {
 
   err = getaddrinfo(hostname, port_str, &hints, &addrs);
   if (err != 0) {
-    fprintf(stderr, "Could not connect to Morph at %s:%d: %s\n", hostname, port, strerror(err));
+    fprintf(stderr, "Could not connect to Morph at %s:%d: %s\n", hostname, port, std::strerror(err));
     exit(1);
   }
 
@@ -64,7 +65,7 @@ int connSend(char const *hostname, int port, const std::string& oss) {
   freeaddrinfo(addrs);
 
   if (sd == -1) {
-    fprintf(stderr, "Could not connect to Morph at %s:%d: %s\n", hostname, port, strerror(err));
+    fprintf(stderr, "Could not connect to Morph at %s:%d: %s\n", hostname, port, std::strerror(err));
     exit(1);
   }
 
