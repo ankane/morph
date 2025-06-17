@@ -14,7 +14,10 @@
  * limitations under the License. See accompanying LICENSE file.
  */
 
+#include <iostream>
+#include <string>
 #include <unistd.h>
+#include <vector>
 
 #include "client.h"
 #include "version.h"
@@ -39,7 +42,7 @@ Options parseArgs(int argc, char *argv[]) {
         opts.hostname = optarg;
         break;
       case 'p':
-        opts.port = atoi(optarg);
+        opts.port = std::atoi(optarg);
         break;
       case 'S':
         opts.sk_path = optarg;
@@ -49,11 +52,11 @@ Options parseArgs(int argc, char *argv[]) {
         break;
       case ':':
         if (optopt != 'h') {
-          opts.err = "Bad number of args: '-" + (std::string() + (char) optopt) + "'";
+          opts.err = "Bad number of args: '-" + (std::string() + static_cast<char>(optopt)) + "'";
         }
         break;
       case '?':
-        opts.err = "Unrecognized option: '-" + (std::string() + (char) optopt) + "'";
+        opts.err = "Unrecognized option: '-" + (std::string() + static_cast<char>(optopt)) + "'";
         break;
     }
   }

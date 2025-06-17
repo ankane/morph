@@ -15,19 +15,17 @@ jobs:
           sudo apt-get install libntl-dev
           git clone --branch v2.3.0 https://github.com/homenc/HElib.git
           cd HElib
-          mkdir build && cd build
-          cmake ..
-          make
-          sudo make install
+          cmake -S . -B build
+          cmake --build build
+          sudo cmake --install build
           sudo ldconfig
       - if: ${{ startsWith(matrix.os, 'macos') }}
         run: brew install helib
       - name: Build
         run: |
-          mkdir build && cd build
-          cmake ..
-          make
-          sudo make install
+          cmake -S . -B build
+          cmake --build build
+          sudo cmake --install build
         env:
           MACOSX_DEPLOYMENT_TARGET: 11
       - name: Test

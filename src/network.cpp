@@ -15,14 +15,13 @@
  */
 
 #include <arpa/inet.h>
+#include <cstdio>
+#include <iostream>
 #include <netdb.h>
-#include <stdio.h>
-#include <string.h>
+#include <string>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <unistd.h>
-
-#include <iostream>
 
 #include "network.h"
 
@@ -92,4 +91,4 @@ int connRead(int connection, char* buffer, int buffer_size) {
   return bytesRead;
 }
 
-}
+} // namespace morph

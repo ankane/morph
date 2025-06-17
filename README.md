@@ -102,6 +102,7 @@ morph-cli info
 Create `hello.cpp`:
 
 ```cpp
+#include <iostream>
 #include <morph/client.h>
 
 int main() {
@@ -134,10 +135,10 @@ On Ubuntu 22.04, use:
 ```sh
 sudo apt-get install libntl-dev
 git clone --branch v2.3.0 https://github.com/homenc/HElib.git
-cd HElib && mkdir build && cd build
-cmake ..
-make
-sudo make install
+cd HElib
+cmake -S . -B build
+cmake --build build
+sudo cmake --install build
 sudo ldconfig
 ```
 
@@ -151,10 +152,10 @@ Then run:
 
 ```sh
 git clone https://github.com/ankane/morph.git
-cd morph && mkdir build && cd build
-cmake ..
-make
-make install # optional, may need sudo
+cd morph
+cmake -S . -B build
+cmake --build build
+cmake --install build # optional, may need sudo
 ```
 
 ## Credits

@@ -134,4 +134,4 @@ Result readResult(const std::string& str) {
   return res;
 }
 
-}
+} // namespace morph

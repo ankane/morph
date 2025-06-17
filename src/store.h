@@ -17,6 +17,10 @@
 
 #pragma once
 
+#include <memory>
+#include <string>
+#include <vector>
+
 #include <helib/helib.h>
 
 #include "encryption.h"
@@ -42,4 +46,4 @@ class Store {
     helib::Ctxt stringToCtxt(const std::string& str);
 };
 
-}
+} // namespace morph

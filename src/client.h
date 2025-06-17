@@ -33,10 +33,10 @@ struct ClientOptions {
 
 class Client {
   public:
-    Client() {};
+    Client() {}
     Client(ClientOptions& options) {
       options_ = options;
-    };
+    }
 
     void keygen();
 
@@ -56,7 +56,6 @@ class Client {
 
   private:
     ClientOptions options_;
-
 };
 
-}
+} // namespace morph

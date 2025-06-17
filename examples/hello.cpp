@@ -1,3 +1,4 @@
+#include <iostream>
 #include <morph/client.h>
 
 int main() {

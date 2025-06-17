@@ -23,4 +23,4 @@ namespace morph {
 int connSend(char const *hostname, int port, const std::string& oss);
 int connRead(int connection, char* buffer, int buffer_size);
 
-}
+} // namespace morph

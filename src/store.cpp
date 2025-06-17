@@ -15,11 +15,14 @@
  * limitations under the License. See accompanying LICENSE file.
  */
 
-#include <helib/helib.h>
-
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <string>
+#include <utility>
+#include <vector>
+
+#include <helib/helib.h>
 
 #include "store.h"
 
@@ -85,4 +88,4 @@ int Store::size() {
   return store_.size();
 }
 
-}
+} // namespace morph

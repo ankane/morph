@@ -15,6 +15,8 @@
  * limitations under the License. See accompanying LICENSE file.
  */
 
+#include <iostream>
+#include <string>
 #include <sys/stat.h>
 
 #include "encryption.h"
@@ -27,8 +29,7 @@ std::string ctxtToString(const helib::Ctxt& ctxt) {
   return oss.str();
 }
 
-bool fileExists(const std::string& filename)
-{
+bool fileExists(const std::string& filename) {
   struct stat buf;
   return stat(filename.c_str(), &buf) == 0;
 }
@@ -110,4 +111,4 @@ std::string Encryptor::decrypt(const std::string& str) {
   }
 }
 
-}
+} // namespace morph

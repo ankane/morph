@@ -30,10 +30,10 @@ struct ServerOptions {
 
 class Server {
   public:
-    Server() {};
+    Server() {}
     Server(ServerOptions& options) {
       options_ = options;
-    };
+    }
     void start();
 
   private:
@@ -42,4 +42,4 @@ class Server {
     void handleError(const std::string& section, const std::string& message);
 };
 
-}
+} // namespace morph

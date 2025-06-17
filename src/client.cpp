@@ -16,6 +16,8 @@
 
 #include <fstream>
 #include <iostream>
+#include <string>
+#include <vector>
 
 #include "client.h"
 #include "encryption.h"
@@ -121,4 +123,4 @@ std::string Client::info() {
   return res.value_str;
 }
 
-}
+} // namespace morph

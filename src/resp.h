@@ -40,4 +40,4 @@ std::string readBulkString(const char*& p);
 std::vector<std::string> readArray(const char* buffer);
 Result readResult(const std::string& str);
 
-}
+} // namespace morph

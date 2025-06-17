@@ -14,7 +14,10 @@
  * limitations under the License. See accompanying LICENSE file.
  */
 
+#include <iostream>
+#include <string>
 #include <unistd.h>
+#include <vector>
 
 #include "server.h"
 #include "version.h"
@@ -51,10 +54,10 @@ Options parseArgs(int argc, char *argv[]) {
         opts.version = true;
         break;
       case ':':
-        opts.err = "Bad number of args: '-" + (std::string() + (char) optopt) + "'";
+        opts.err = "Bad number of args: '-" + (std::string() + static_cast<char>(optopt)) + "'";
         break;
       case '?':
-        opts.err = "Unrecognized option: '-" + (std::string() + (char) optopt) + "'";
+        opts.err = "Unrecognized option: '-" + (std::string() + static_cast<char>(optopt)) + "'";
         break;
     }
   }
